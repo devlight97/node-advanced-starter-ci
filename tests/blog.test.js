@@ -4,7 +4,7 @@ let page;
 
 beforeEach(async () => {
   page = await CustomPage.build();
-  await page.goto('localhost:3000');
+  await page.goto('http://localhost:3000');
 });
 
 afterEach(async () => {
@@ -28,7 +28,7 @@ describe('When logged in', async () => {
 
   describe('And using invalid inputs', async () => {
     beforeEach(async () => {
-      await page.goto('localhost:3000/blogs/new');
+      await page.goto('http://localhost:3000/blogs/new');
       await page.click('button[type="submit"]');
     });
     test('the form shows an error message', async () => {
@@ -44,7 +44,7 @@ describe('When logged in', async () => {
     beforeEach(async () => {
 
       // filling input
-      await page.goto('localhost:3000/blogs/new');
+      await page.goto('http://localhost:3000/blogs/new');
       await page.type('.title input', 'My Title');
       await page.type('.content input', 'My Content');
       await page.click('button[type="submit"]');
